@@ -80,7 +80,7 @@ module.exports = function (grunt) {
                 var result,
                     src = f,
                     srcFileNameNoExt = getFileNameNoExt('' + src),
-                    destFile = fileGrp.dest + '/' + srcFileNameNoExt + '.json';
+                    destFile = (fileGrp.dest + '/' + srcFileNameNoExt).replace('.dot','') + '.json';
 
                 try {
                     result = worker.undot(src, options);
