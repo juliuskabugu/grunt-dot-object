@@ -34,7 +34,7 @@ module.exports = function (grunt) {
                 options : {},
                 files : [
                     {
-                        src : 'tasks/resources/input/*.json',
+                        src : ['tasks/resources/input/*.json', '!**/*.dot.json'],
                         dest : 'tasks/resources/output'
                     }
                 ]
@@ -46,7 +46,7 @@ module.exports = function (grunt) {
                 options : {},
                 files : [
                     {
-                        src : 'tasks/resources/input/*.dot',
+                        src : 'tasks/resources/input/*.dot.json',
                         dest : 'tasks/resources/output'
                     }
                 ]

@@ -1,7 +1,7 @@
 {
   "name": "grunt-dot-object",
-  "description": "Uses npm dot object to transform between json objects and dot format objects",
-  "version": "0.1.0",
+  "description": "Uses npm dot object to transform files between json graph and dot formats",
+  "version": "0.1.1",
   "homepage": "https://github.com/JuliusKabugu/grunt-dot-object",
   "author": {
     "name": "Julius Kabugu",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/JuliusKabugu/grunt-dot-object.git"
+    "url": "https://github.com/juliuskabugu/grunt-dot-object.git"
   },
   "bugs": {
     "url": "https://github.com/JuliusKabugu/grunt-dot-object/issues"
