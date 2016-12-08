@@ -20,11 +20,12 @@ grunt.loadNpmTasks('grunt-dot-object');
 ## The "dot_object" task
 
 ### Overview
-In your project's Gruntfile, add a section named `dot_object` to the data object passed into `grunt.initConfig()`.
+In your project's Gruntfile, add a section named `dot` and/or a section named `undot` to the data object passed into
+`grunt.initConfig()`.
 
 ```js
 grunt.initConfig({
-  dot_object: {
+  dot: {
     options: {
       // Task-specific options go here.
     },
@@ -32,6 +33,14 @@ grunt.initConfig({
       // Target-specific file lists and/or options go here.
     },
   },
+  undot: {
+      options: {
+        // Task-specific options go here.
+      },
+      your_target: {
+        // Target-specific file lists and/or options go here.
+      },
+    }
 });
 ```
 
@@ -52,38 +61,36 @@ A string value that is used to do something else with whatever else.
 ### Usage Examples
 
 #### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
+In this example, I use i18n target to specify json files that can be converted to the dot format, and .dot.json files
+that can be converted to the graph format
 
 ```js
 grunt.initConfig({
-  dot_object: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
+  dot : {
+    i18n : {
+      options : {},
+      files : [
+        {
+          src : ['app/resources/i18n/*.json', '!app/resources/i18n/*.dot.json'],
+          dest : 'app/resources/i18n/'
+        }
+      ]
+    }
   },
-});
-```
-
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
-
-```js
-grunt.initConfig({
-  dot_object: {
-    options: {
-      separator: ': ',
-      punctuation: ' !!!',
-    },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
+  undot : {
+    i18n : {
+      options : {},
+      files : [
+        {
+          src : 'app/resources/i18n/*.dot.json',
+          dest : 'app/resources/i18n/'
+        }
+      ]
+    }
   },
 });
 ```
 
 ## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
-_(Nothing yet)_
